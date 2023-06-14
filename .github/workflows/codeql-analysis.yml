@@ -18,13 +18,13 @@ jobs:
         language: [ 'javascript' ]
     steps:
     - name: Checkout repository
-      uses: actions/checkout@master
+      uses: actions/checkout@v2
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@master
+      uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
         queries: security-extended
     - name: Autobuild
-      uses: github/codeql-action/autobuild@master
+      uses: github/codeql-action/autobuild@v2
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@master
+      uses: github/codeql-action/analyze@v2
