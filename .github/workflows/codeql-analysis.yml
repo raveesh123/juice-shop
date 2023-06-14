@@ -2,7 +2,7 @@ name: "CodeQL Scan"
 
 on:
   push:
-  pull_request:
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -18,13 +18,13 @@ jobs:
         language: [ 'javascript' ]
     steps:
     - name: Checkout repository
-      uses: actions/checkout@5a4ac9002d0be2fb38bd78e4b4dbde5606d7042f #v2: v2.3.4 available
+      uses: actions/checkout@master
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
+      uses: github/codeql-action/init@master
       with:
         languages: ${{ matrix.language }}
         queries: security-extended
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+      uses: github/codeql-action/autobuild@master
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+      uses: github/codeql-action/analyze@master
